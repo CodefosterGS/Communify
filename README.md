@@ -1,4 +1,4 @@
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/arpit3018/NameTheCode/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/ajinkyataranekar/communify/pulls)
 [![Made with Dlutter](https://img.shields.io/badge/Made_with-Flutter-blue.svg)](https://flutter.dev/)
 [![Slack Status](https://img.shields.io/badge/Chat%20on-Slack-orange.svg)](https://join.slack.com/t/communify-workspace/shared_invite/enQtODU5Mzc0NTI2MDcxLWUzNzM0NDJmODZiZmQwZDI5M2EyODY5OGUyMWE1YTk0MWRhYzhmY2E2M2UzMTkyN2JjMWJiMDMwNTdiOTU5NDE)
 
