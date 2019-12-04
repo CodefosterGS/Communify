@@ -169,7 +169,7 @@ class _BottomBarViewState extends State<BottomBarView>
                             widget.addClick();
                           },
                           child: Icon(
-                            Icons.add,
+                            Icons.home,
                             color: AppTheme.white,
                             size: 32,
                           ),
