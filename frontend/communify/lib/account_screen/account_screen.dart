@@ -1,221 +1,260 @@
+import 'package:communify/app_theme.dart';
+import 'package:communify/ui_view/title_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:math' as math;
 
 class AccountScreen extends StatefulWidget {
-  @override
+  const AccountScreen({Key key, this.animationController}) : super(key: key);
+
+  final AnimationController animationController;
+ @override
   _AccountScreenState createState() => _AccountScreenState();
 }
 
-class _AccountScreenState extends State<AccountScreen> {
+class _AccountScreenState extends State<AccountScreen>   with TickerProviderStateMixin {
+  Animation<double> topBarAnimation;
+
+  List<Widget> listViews = <Widget>[];
+  final ScrollController scrollController = ScrollController();
+  double topBarOpacity = 0.0;
 
   @override
   void initState() {
+    topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+        CurvedAnimation(
+            parent: widget.animationController,
+            curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+    addAllListData();
+
+    scrollController.addListener(() {
+      if (scrollController.offset >= 24) {
+        if (topBarOpacity != 1.0) {
+          setState(() {
+            topBarOpacity = 1.0;
+          });
+        }
+      } else if (scrollController.offset <= 24 &&
+          scrollController.offset >= 0) {
+        if (topBarOpacity != scrollController.offset / 24) {
+          setState(() {
+            topBarOpacity = scrollController.offset / 24;
+          });
+        }
+      } else if (scrollController.offset <= 0) {
+        if (topBarOpacity != 0.0) {
+          setState(() {
+            topBarOpacity = 0.0;
+          });
+        }
+      }
+    });
     super.initState();
-
-    SystemChrome.setEnabledSystemUIOverlays([]);
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Profile",
-      home: ProfilePage(),
-      debugShowCheckedModeBanner: false,
+  void addAllListData() {
+    const int count = 9;
+    listViews.add(
+    SizedBox(height: 90,)
     );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-
-  TextStyle _style(){
-    return TextStyle(
-      fontWeight: FontWeight.bold
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text("Name"),
-            SizedBox(height: 4,),
-            Text("Spider-man", style: _style(),),
-            SizedBox(height: 16,),
-
-            Text("Email", style: _style(),),
-            SizedBox(height: 4,),
-            Text("spidey@avengers.com"),
-            SizedBox(height: 16,),
-
-            Text("Location", style: _style(),),
-            SizedBox(height: 4,),
-            Text("New York, USA"),
-            SizedBox(height: 16,),
-
-            Text("Language", style: _style(),),
-            SizedBox(height: 4,),
-            Text("English, Spanish"),
-            SizedBox(height: 16,),
-
-            Text("Occupation", style: _style(),),
-            SizedBox(height: 4,),
-            Text("Friendly Neighbourhood Superhero"),
-            SizedBox(height: 16,),
-
-            Divider(color: Colors.grey,)
-          ],
-        ),
+    listViews.add(
+      TitleView(
+        titleTxt: 'Name:',
+        subTxt: 'Spider-man',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController,
+            curve:
+                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController,
       ),
     );
-  }
-}
-
-
-
-class CustomAppBar extends StatelessWidget
-  with PreferredSizeWidget{
-
-  @override
-  Size get preferredSize => Size(double.infinity, 320);
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: MyClipper(),
-      child: Container(
-        padding: EdgeInsets.only(top: 4),
-        decoration: BoxDecoration(
-          color: Colors.blueAccent,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.red,
-              blurRadius: 20,
-              offset: Offset(0, 0)
-            )
-          ]
-        ),
-        child: Column(
-          children: <Widget>[
-            
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-              SizedBox(height: 225,),
-                Column(
-                  children: <Widget>[
-                    Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: new ExactAssetImage('assets/images/userImage.png'),
-                          )
-                      ),
-                    ),
-                  ],
-                ),
-              Column(
-                children: <Widget>[
-                Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text("Name: \t", 
-                        style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        ),
-                      ),
-                      Text("Spider-Men", 
-                        style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text("Age: \t", 
-                        style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        ),
-                      ),
-                      Text("24", 
-                        style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-
-              ],
-            ),
-
-            Align(
-              alignment: Alignment(0.99,-0.99),
-              child: GestureDetector(
-                onTap: (){
-                  print("//TODO: button clicked");
-                },
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 40, 0),
-                  child: Transform.rotate(
-                    angle: (math.pi * 0.05),
-                    child: Container(
-                      width: 110,
-                      height: 32,
-                      child: Center(child: Text("Edit Profile"),),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(16)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 20
-                          )
-                        ]
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
+    
+    listViews.add(
+      TitleView(
+        titleTxt: 'Email:',
+        subTxt: 'spidey@avengers.com',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController,
+            curve:
+                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController,
       ),
     );
+
+
+    listViews.add(
+      TitleView(
+        titleTxt: 'Mobile:',
+        subTxt: '987456321',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController,
+            curve:
+                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController,
+      ),
+    );
+
+    listViews.add(
+      TitleView(
+        titleTxt: 'Motto',
+        subTxt: 'With Great Power,\n comes Great Responsibility',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController,
+            curve:
+                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController,
+      ),
+    );
+
+    
   }
-}
-
-class MyClipper extends CustomClipper<Path>{
-
-  @override
-  Path getClip(Size size) {
-    Path p = Path();
-
-    p.lineTo(0, size.height-90);
-    p.lineTo(size.width, size.height-30);
-    p.lineTo(size.width, 50);
-    p.lineTo(0, 50);
-    p.close();
-
-    return p;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
+Future<bool> getData() async {
+    await Future<dynamic>.delayed(const Duration(milliseconds: 50));
     return true;
   }
-}
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: AppTheme.background,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          children: <Widget>[
+            getMainListViewUI(),
+            getAppBarUI(),
+            SizedBox(
+              height: MediaQuery.of(context).padding.bottom,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget getMainListViewUI() {
+    return FutureBuilder<bool>(
+      future: getData(),
+      builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+        if (!snapshot.hasData) {
+          return const SizedBox();
+        } else {
+          return ListView.builder(
+            controller: scrollController,
+            padding: EdgeInsets.only(
+              top: AppBar().preferredSize.height +
+                  MediaQuery.of(context).padding.top +
+                  24,
+              bottom: 62 + MediaQuery.of(context).padding.bottom,
+            ),
+            itemCount: listViews.length,
+            scrollDirection: Axis.vertical,
+            itemBuilder: (BuildContext context, int index) {
+              widget.animationController.forward();
+              return listViews[index];
+            },
+          );
+        }
+      },
+    );
+  }
+
+  Widget getAppBarUI() {
+    return Column(
+      children: <Widget>[
+        AnimatedBuilder(
+          animation: widget.animationController,
+          builder: (BuildContext context, Widget child) {
+            return FadeTransition(
+              opacity: topBarAnimation,
+              child: Transform(
+                transform: Matrix4.translationValues(
+                    0.0, 30 * (1.0 - topBarAnimation.value), 0.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppTheme.white.withOpacity(topBarOpacity),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(32.0),
+                    ),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: AppTheme.grey
+                              .withOpacity(0.4 * topBarOpacity),
+                          offset: const Offset(1.1, 1.1),
+                          blurRadius: 10.0),
+                    ],
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: MediaQuery.of(context).padding.top,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 16,
+                            right: 16,
+                            top: 46 - 8.0 * topBarOpacity,
+                            bottom: 12 - 8.0 * topBarOpacity),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Profile',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontFamily: AppTheme.fontName,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 22 + 6 - 6 * topBarOpacity,
+                                    letterSpacing: 1.2,
+                                    color: AppTheme.darkerText,
+                                  ),
+                                ),
+                              ),
+                            ),
+                             Container(
+                                     alignment: Alignment.center,
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: new ExactAssetImage('assets/images/userImage.png'),
+                                        )
+                                    ),
+                                  ),
+                             Container(
+                                     alignment: Alignment.center,
+                                    width: 100,
+                                    height: 100,
+                              child: Text(
+                                  'Spider-men',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontFamily: AppTheme.fontName,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 22 + 6 - 6 * topBarOpacity,
+                                    letterSpacing: 1.2,
+                                    color: AppTheme.darkerText,
+                                  ),
+                                ),
+                                   ),
+                              
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        )
+      ],
+    );
+  }
+ }
+

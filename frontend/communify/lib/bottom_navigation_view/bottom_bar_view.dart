@@ -1,5 +1,8 @@
 import 'dart:math' as math;
+import 'package:communify/app_screen.dart';
 import 'package:communify/app_theme.dart';
+import 'package:communify/custom_drawer/navigation_home_screen.dart';
+import 'package:communify/home_screen/home_screen.dart';
 import 'package:communify/models/tabIcon_data.dart';
 import 'package:communify/main.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +25,7 @@ class BottomBarView extends StatefulWidget {
 class _BottomBarViewState extends State<BottomBarView>
     with TickerProviderStateMixin {
   AnimationController animationController;
-
+  Widget screenView;
   @override
   void initState() {
     animationController = AnimationController(
@@ -166,7 +169,16 @@ class _BottomBarViewState extends State<BottomBarView>
                           highlightColor: Colors.transparent,
                           focusColor: Colors.transparent,
                           onTap: () {
-                            widget.addClick();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => HomeScreen(animationController: animationController)),
+                            );Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => AppScreen()),
+                            );Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => NavigationHomeScreen()),
+                            );
                           },
                           child: Icon(
                             Icons.home,

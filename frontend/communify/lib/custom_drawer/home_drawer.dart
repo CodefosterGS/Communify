@@ -18,11 +18,19 @@ class HomeDrawer extends StatefulWidget {
   _HomeDrawerState createState() => _HomeDrawerState();
 }
 
-class _HomeDrawerState extends State<HomeDrawer> {
+class _HomeDrawerState extends State<HomeDrawer>     with TickerProviderStateMixin {
+  
    Widget screenView;
   List<DrawerList> drawerList;
+  AnimationController animationController;
+  
   @override
   void initState() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    );
+    animationController.forward();
     setdDrawerListArray();
     super.initState();
   }
@@ -97,7 +105,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                           child:InkWell(
                             onTap: (){
                               setState(() {
-                                    screenView = new AccountScreen();
+                                    screenView = new AccountScreen(animationController: animationController,);
                                   });
                               },
                             child: Container(
