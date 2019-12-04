@@ -1,3 +1,4 @@
+import 'package:communify/account_screen/account_screen.dart';
 import 'package:communify/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,7 @@ class HomeDrawer extends StatefulWidget {
 }
 
 class _HomeDrawerState extends State<HomeDrawer> {
+   Widget screenView;
   List<DrawerList> drawerList;
   @override
   void initState() {
@@ -92,22 +94,29 @@ class _HomeDrawerState extends State<HomeDrawer> {
                                       curve: Curves.fastOutSlowIn))
                                   .value /
                               360),
-                          child: Container(
-                            height: 120,
-                            width: 120,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: <BoxShadow>[
-                                BoxShadow(
-                                    color: AppTheme.grey.withOpacity(0.6),
-                                    offset: const Offset(2.0, 4.0),
-                                    blurRadius: 8),
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(60.0)),
-                              child: Image.asset('assets/images/userImage.png'),
+                          child:InkWell(
+                            onTap: (){
+                              setState(() {
+                                    screenView = new AccountScreen();
+                                  });
+                              },
+                            child: Container(
+                              height: 120,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                boxShadow: <BoxShadow>[
+                                  BoxShadow(
+                                      color: AppTheme.grey.withOpacity(0.6),
+                                      offset: const Offset(2.0, 4.0),
+                                      blurRadius: 8),
+                                ],
+                              ),
+                              child: ClipRRect(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(60.0)),
+                                child: Image.asset('assets/images/userImage.png'),
+                              ),
                             ),
                           ),
                         ),

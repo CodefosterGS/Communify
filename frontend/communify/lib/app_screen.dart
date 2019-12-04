@@ -1,3 +1,5 @@
+import 'package:communify/account_screen/account_screen.dart';
+import 'package:communify/home_screen/home_screen.dart';
 import 'package:communify/models/tabIcon_data.dart';
 import 'package:flutter/material.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
@@ -30,6 +32,7 @@ class _AppScreenState extends State<AppScreen>
         duration: const Duration(milliseconds: 600), vsync: this);
     // some screen
     //tabBody = (animationController: animationController);
+    tabBody = HomeScreen(); 
     super.initState();
   }
 
@@ -87,6 +90,7 @@ class _AppScreenState extends State<AppScreen>
                 setState(() {
                 // some screen
                 //  tabBody = (animationController: animationController),
+                
                 });
               });
             } else if (index == 1 ) {
@@ -117,6 +121,7 @@ class _AppScreenState extends State<AppScreen>
                 setState(() {
                 // some screen
                 //  tabBody = (animationController: animationController),
+                tabBody=AccountScreen();
                 });
               });
             }
