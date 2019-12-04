@@ -32,7 +32,7 @@ class _AppScreenState extends State<AppScreen>
         duration: const Duration(milliseconds: 600), vsync: this);
     // some screen
     //tabBody = (animationController: animationController);
-    tabBody = HomeScreen(); 
+    tabBody = HomeScreen(animationController: animationController); 
     super.initState();
   }
 
@@ -121,7 +121,7 @@ class _AppScreenState extends State<AppScreen>
                 setState(() {
                 // some screen
                 //  tabBody = (animationController: animationController),
-                tabBody=AccountScreen();
+                tabBody=AccountScreen(animationController: animationController);
                 });
               });
             }

@@ -4,6 +4,7 @@ import 'package:communify/custom_drawer/home_drawer.dart';
 import 'package:communify/custom_drawer/feedback_screen.dart';
 import 'package:communify/custom_drawer/help_screen.dart';
 import 'package:communify/custom_drawer/invite_friend_screen.dart';
+import 'package:communify/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../app_screen.dart';
@@ -13,16 +14,24 @@ class NavigationHomeScreen extends StatefulWidget {
   _NavigationHomeScreenState createState() => _NavigationHomeScreenState();
 }
 
-class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
+class _NavigationHomeScreenState extends State<NavigationHomeScreen> 
+      with TickerProviderStateMixin {
   Widget screenView;
   DrawerIndex drawerIndex;
   AnimationController sliderAnimationController;
-
+  AnimationController animationController;
+  
   @override
   void initState() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    );
+    animationController.forward();
     drawerIndex = DrawerIndex.HOME;
     screenView = const AppScreen();
     super.initState();
+    
   }
 
   @override
@@ -51,11 +60,24 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
   }
 
   void changeIndex(DrawerIndex drawerIndexdata) {
+    
     if (drawerIndex != drawerIndexdata) {
       drawerIndex = drawerIndexdata;
       if (drawerIndex == DrawerIndex.HOME) {
-        setState(() {
-          screenView = const AppScreen();
+        animationController.reverse().then<dynamic>((data) {
+          if (!mounted) {
+            return;
+          }
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomeScreen(animationController: animationController)),
+          );Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AppScreen()),
+          );Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NavigationHomeScreen()),
+          );
         });
       } else if (drawerIndex == DrawerIndex.Help) {
         setState(() {
