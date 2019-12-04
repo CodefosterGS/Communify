@@ -1,27 +1,40 @@
-# Communify
-This project will help to ease the communication between peoples.
+# Communify App
 
-## Frontend
+## Getting Started
 
-we will use flutter and dart for frontend UI.
+This project is a starting point for a Flutter application.
 
-### Getting Started
+A few resources to get you started if this is your first Flutter project:
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-#### Prerequisites
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
 
-What things you need to install the software and how to install them
+## Steps to proceed with
+* Fork the repo
+* Clone the repo 
+* Install Android Studio, and either make an emulator or connect a real device.
+```
+https://developer.android.com/studio/install
+```
 * Install Flutter
-
-## Authors
- 
-* **Ajinkya Taranekar** 
-* **Anand Kumar**
-* **Mahak Mandelecha** 
-* **Ritik Nandwal** 
-
-## License
-
-This project is licensed under the Codefoster and SGSITS.
-
+```
+https://flutter.dev/docs/get-started/install
+```
+* Check Flutter status on terminal, by
+```
+flutter doctor
+```
+* Open any IDE, for editing
+* On terminal, write to get packages requires by software
+```
+flutter get packages
+```
+* To run, the app connect the device or emulator, and write
+```
+flutter run
+```
+* Test the app and start contributing, open a PR, so that mentor can see and review your code.
