@@ -77,7 +77,6 @@ class ProfilePage extends StatelessWidget {
 }
 
 
-final String url = "assets/images/profile.png";
 
 class CustomAppBar extends StatelessWidget
   with PreferredSizeWidget{
@@ -92,7 +91,7 @@ class CustomAppBar extends StatelessWidget
       child: Container(
         padding: EdgeInsets.only(top: 4),
         decoration: BoxDecoration(
-          color: Colors.redAccent,
+          color: Colors.blueAccent,
           boxShadow: [
             BoxShadow(
               color: Colors.red,
@@ -103,26 +102,7 @@ class CustomAppBar extends StatelessWidget
         ),
         child: Column(
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.menu, color: Colors.white,),
-                  onPressed: (){},
-                ),
-
-                Text("Profile", style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),),
-
-                IconButton(
-                  icon: Icon(Icons.notifications, color: Colors.white,),
-                  onPressed: (){},
-                )
-              ],
-            ),
-
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
@@ -136,88 +116,51 @@ class CustomAppBar extends StatelessWidget
                           shape: BoxShape.circle,
                           image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: NetworkImage(url)
+                              image: new ExactAssetImage('assets/images/userImage.png'),
                           )
                       ),
                     ),
-                    SizedBox(height: 16,),
-                    Text("Milan Short", style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20
-                    ),)
+                    SizedBox(height: 16,)
                   ],
                 ),
-
-                Column(
-                  children: <Widget>[
-                    Text("Schedule", style: TextStyle(
-                      color: Colors.white
-                    ),),
-                    Text("8", style: TextStyle(
-                        fontSize: 26,
-                        color: Colors.white
-                    ),)
-                  ],
-                ),
-
-                Column(
-                  children: <Widget>[
-                    Text("Events", style: TextStyle(
-                        color: Colors.white
-                    ),),
-                    Text("12", style: TextStyle(
-                        fontSize: 26,
-                        color: Colors.white
-                    ),)
-                  ],
-                ),
-
-
-                Column(
-                  children: <Widget>[
-                    Text("Routines", style: TextStyle(
-                        color: Colors.white
-                    ),),
-                    Text("4", style: TextStyle(
-                        fontSize: 26,
-                        color: Colors.white
-                    ),)
-                  ],
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-
-                Column(
-                  children: <Widget>[
-                    Text("Savings", style: TextStyle(
-                      color: Colors.white
-                    ),),
-                    Text("20K", style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24
-                    ),)
-                  ],
-                ),
-
-                SizedBox(width: 32,),
-
-                Column(
-                  children: <Widget>[
-                    Text("July Goals",
-                    style: TextStyle(
-                      color: Colors.white
-                    ),),
-                    Text("50K", style: TextStyle(
+              Column(
+                children: <Widget>[
+                Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("Name: \t", 
+                        style: TextStyle(
                         color: Colors.white,
-                        fontSize: 24
-                    ))
-                  ],
-                ),
-
-                SizedBox(width: 16,)
+                        fontSize: 20,
+                        ),
+                      ),
+                      Text("Spider-Men", 
+                        style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("Age: \t", 
+                        style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        ),
+                      ),
+                      Text("24", 
+                        style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(width: 16,)
 
               ],
             ),
