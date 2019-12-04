@@ -106,7 +106,7 @@ class CustomAppBar extends StatelessWidget
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-
+              SizedBox(height: 225,),
                 Column(
                   children: <Widget>[
                     Container(
@@ -120,7 +120,6 @@ class CustomAppBar extends StatelessWidget
                           )
                       ),
                     ),
-                    SizedBox(height: 16,)
                   ],
                 ),
               Column(
@@ -160,20 +159,18 @@ class CustomAppBar extends StatelessWidget
                   ),
                 ],
               ),
-              SizedBox(width: 16,)
 
               ],
             ),
-            SizedBox(height: 8,),
 
             Align(
-              alignment: Alignment.bottomRight,
+              alignment: Alignment(0.99,-0.99),
               child: GestureDetector(
                 onTap: (){
                   print("//TODO: button clicked");
                 },
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 24, 16, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 40, 0),
                   child: Transform.rotate(
                     angle: (math.pi * 0.05),
                     child: Container(
@@ -208,11 +205,10 @@ class MyClipper extends CustomClipper<Path>{
   Path getClip(Size size) {
     Path p = Path();
 
-    p.lineTo(0, size.height-70);
-    p.lineTo(size.width, size.height);
-
-    p.lineTo(size.width, 0);
-
+    p.lineTo(0, size.height-90);
+    p.lineTo(size.width, size.height-30);
+    p.lineTo(size.width, 50);
+    p.lineTo(0, 50);
     p.close();
 
     return p;
