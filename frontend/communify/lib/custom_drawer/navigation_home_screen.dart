@@ -6,7 +6,7 @@ import 'package:communify/custom_drawer/help_screen.dart';
 import 'package:communify/custom_drawer/invite_friend_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../home_screen.dart';
+import '../app_screen.dart';
 
 class NavigationHomeScreen extends StatefulWidget {
   @override
@@ -21,7 +21,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
   @override
   void initState() {
     drawerIndex = DrawerIndex.HOME;
-    screenView = const HomeScreen();
+    screenView = const AppScreen();
     super.initState();
   }
 
@@ -55,7 +55,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
       drawerIndex = drawerIndexdata;
       if (drawerIndex == DrawerIndex.HOME) {
         setState(() {
-          screenView = const HomeScreen();
+          screenView = const AppScreen();
         });
       } else if (drawerIndex == DrawerIndex.Help) {
         setState(() {

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'app_theme.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key key}) : super(key: key);
+class AppScreen extends StatefulWidget {
+  const AppScreen({Key key}) : super(key: key);
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _AppScreenState createState() => _AppScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
+class _AppScreenState extends State<AppScreen>
     with TickerProviderStateMixin {
   AnimationController animationController;
 
