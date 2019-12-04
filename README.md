@@ -1,4 +1,4 @@
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/ajinkyataranekar/communify/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/codefostergs/communify/pulls)
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![Made with Dlutter](https://img.shields.io/badge/Made_with-Flutter-blue.svg)](https://flutter.dev/)
 [![Slack Status](https://img.shields.io/badge/Chat%20on-Slack-orange.svg)](https://join.slack.com/t/communify-workspace/shared_invite/enQtODU5Mzc0NTI2MDcxLWUzNzM0NDJmODZiZmQwZDI5M2EyODY5OGUyMWE1YTk0MWRhYzhmY2E2M2UzMTkyN2JjMWJiMDMwNTdiOTU5NDE)
@@ -46,6 +46,6 @@ This project is licensed under the Codefoster and SGSITS.
 
 ## Contributing
 You can contribute in several ways. If you know how to code or are a designer, you are welcome to contribute using pull requests.
-You can also contribute by [opening issues](https://github.com/ajinkyataranekar/communify/issues) about defects and things that could be improved or request entirely new features that you think would help others.
+You can also contribute by [opening issues](https://github.com/codefostergs/communify/issues) about defects and things that could be improved or request entirely new features that you think would help others.
 Join the [Slack Communication Channel](https://join.slack.com/t/communify-workspace/shared_invite/enQtODU5Mzc0NTI2MDcxLWUzNzM0NDJmODZiZmQwZDI5M2EyODY5OGUyMWE1YTk0MWRhYzhmY2E2M2UzMTkyN2JjMWJiMDMwNTdiOTU5NDE)
 
