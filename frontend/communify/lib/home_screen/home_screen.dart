@@ -1,4 +1,7 @@
 import 'package:communify/app_theme.dart';
+import 'package:communify/ui_view/card_view.dart';
+import 'package:communify/ui_view/event_view.dart';
+import 'package:communify/ui_view/map_view.dart';
 import 'package:communify/ui_view/title_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -56,11 +59,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   void addAllListData() {
     const int count = 9;
-
+    String location = 'Indore';
+    List<String> titles;
+    List<Image> images;
+    
     listViews.add(
       TitleView(
-        titleTxt: 'Mediterranean diet',
-        subTxt: 'Details',
+        titleTxt: 'Location',
+        subTxt: location,
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
@@ -68,11 +74,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         animationController: widget.animationController,
       ),
     );
-
+    listViews.add(
+      MapViewOfCity(
+        location: location,
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController,
+            curve:
+                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController,
+      ),
+    );
     listViews.add(
       TitleView(
-        titleTxt: 'Meals today',
-        subTxt: 'Customize',
+        titleTxt: 'Pouplar Event Organiser',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
@@ -81,11 +95,22 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       ),
     );
 
+    
+    listViews.add(
+      CardView(
+        titleTxt: titles,
+        image : images,
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController,
+            curve:
+                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController,  
+      ),
+    );
 
     listViews.add(
       TitleView(
-        titleTxt: 'Body measurement',
-        subTxt: 'Today',
+        titleTxt: 'Your Next Event',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
@@ -93,15 +118,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         animationController: widget.animationController,
       ),
     );
-
     listViews.add(
-      TitleView(
-        titleTxt: 'Water',
-        subTxt: 'Amount of Water Drank',
+      EventView(
+        organizationTxt: 'Google Developer Circle',
+        eventTxt: 'Cloud Day',
+        time: '7 th December 2020, 10am',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
-                Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
+                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController,
       ),
     );
@@ -158,6 +183,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       },
     );
   }
+
 
   Widget getAppBarUI() {
     DateTime now = DateTime.now();
