@@ -4,6 +4,7 @@ import 'package:communify/custom_drawer/home_drawer.dart';
 import 'package:communify/custom_drawer/feedback_screen.dart';
 import 'package:communify/custom_drawer/help_screen.dart';
 import 'package:communify/custom_drawer/invite_friend_screen.dart';
+import 'package:communify/custom_drawer/setting_screen.dart';
 import 'package:communify/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -90,6 +91,10 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen>
       } else if (drawerIndex == DrawerIndex.Invite) {
         setState(() {
           screenView = InviteFriend();
+        });
+      } else if (drawerIndex == DrawerIndex.Setting) {
+        setState(() {
+          screenView = SettingScreen();
         });
       } else {
         //do in your way......

@@ -68,6 +68,11 @@ class _HomeDrawerState extends State<HomeDrawer>     with TickerProviderStateMix
         labelName: 'About Us',
         icon: Icon(Icons.info),
       ),
+      DrawerList(
+        index: DrawerIndex.About,
+        labelName: 'Setting',
+        icon: Icon(Icons.settings),
+      ),
     ];
   }
 
@@ -310,6 +315,7 @@ enum DrawerIndex {
   Share,
   About,
   Invite,
+  Setting,
   Testing,
 }
 
