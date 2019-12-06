@@ -68,9 +68,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   void addAllListData() {
     const int count = 9;
-    List<String> titles;
-    List<Image> images;
-    
+    String titles = "Google Developer group";
+    Image images ;
     // BUG
     //String currentLocation = (userLocation.latitude.toString() + " " +userLocation.longitude.toString());           
     String currentLocation = "INDORE";

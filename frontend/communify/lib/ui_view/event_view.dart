@@ -20,6 +20,7 @@ class EventView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return AnimatedBuilder(
       animation: animationController,
       builder: (BuildContext context, Widget child) {
@@ -33,7 +34,17 @@ class EventView extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 24, right: 24),
                 child: Row(
                   children: <Widget>[
-                          
+                          Card(
+                              child: ListTile(
+                                leading: FlutterLogo(size: 72.0),
+                                title: Text(eventTxt),
+                                subtitle: Text(
+                                  organizationTxt + '\n' + time
+                                ),
+                                trailing: Icon(Icons.more_vert),
+                                isThreeLine: true,
+                              ),
+                            ),
                           ],
                         ),
                       ),
