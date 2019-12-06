@@ -5,6 +5,7 @@ import 'package:communify/ui_view/map_view.dart';
 import 'package:communify/ui_view/title_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:geolocator/geolocator.dart';
 import 'dart:math' as math;
 
 import 'package:intl/intl.dart';
@@ -19,7 +20,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Animation<double> topBarAnimation;
+  Geolocator geolocator = Geolocator();
 
+  Position userLocation;
   List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
@@ -54,19 +57,27 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         }
       }
     });
+    _getLocation().then((value) {
+                      setState(() {
+                        userLocation = value;
+                      });
+                    });
+    
     super.initState();
   }
 
   void addAllListData() {
     const int count = 9;
-    String location = 'Indore';
     List<String> titles;
     List<Image> images;
     
+    // BUG
+    //String currentLocation = (userLocation.latitude.toString() + " " +userLocation.longitude.toString());           
+    String currentLocation = "INDORE";
     listViews.add(
       TitleView(
         titleTxt: 'Location',
-        subTxt: location,
+        subTxt: currentLocation,
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
@@ -76,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
     listViews.add(
       MapViewOfCity(
-        location: location,
+        location: 'Indore',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
@@ -130,7 +141,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         animationController: widget.animationController,
       ),
     );
-
   }
 
   Future<bool> getData() async {
@@ -283,5 +293,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         )
       ],
     );
+  }
+  Future<Position> _getLocation() async {
+    var currentLocation;
+    try {
+      currentLocation = await geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.best);
+    } catch (e) {
+      currentLocation = null;
+    }
+    return currentLocation;
   }
 }

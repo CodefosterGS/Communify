@@ -28,6 +28,8 @@ dependencies:
   intl: ^0.16.0
   get_it: ^1.0.3+2
   url_launcher: ^5.0.3
+  geolocator: ^5.1.5
+  location : ^2.3.5
 
 dev_dependencies:
   flutter_test:
