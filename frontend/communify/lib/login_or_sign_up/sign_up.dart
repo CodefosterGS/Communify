@@ -61,12 +61,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(top: 20.0),
-                child: Image.asset("assets/login_01.png"),
+                child: Image.asset("assets/images/login_01.png"),
               ),
               Expanded(
                 child: Container(),
               ),
-              Image.asset("assets/login_02.png")
+              Image.asset("assets/images/login_02.png")
             ],
           ),
           SingleChildScrollView(
@@ -77,7 +77,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Row(
                     children: <Widget>[
                       Image.asset(
-                        "assets/logo.png",
+                        "assets/images/logo.png",
                         width: ScreenUtil.getInstance().setWidth(110),
                         height: ScreenUtil.getInstance().setHeight(110),
                       ),
