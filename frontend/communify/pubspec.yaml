@@ -30,6 +30,7 @@ dependencies:
   url_launcher: ^5.0.3
   geolocator: ^5.1.5
   location : ^2.3.5
+  flutter_screenutil : ^0.7.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +81,17 @@ flutter:
         - asset: assets/fonts/Roboto-Regular.ttf
         - asset: assets/fonts/Roboto-Medium.ttf
           weight: 400
+    - family: CustomIcons
+      fonts:
+        - asset: assets/CustomIcons.ttf
+
+    - family: Poppins-Bold
+      fonts:
+        - asset: assets/Poppins-Bold.ttf
+
+    - family: Poppins-Medium
+      fonts:
+        - asset: assets/Poppins-Medium.ttf 
 #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
