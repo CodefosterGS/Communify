@@ -81,7 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         width: ScreenUtil.getInstance().setWidth(110),
                         height: ScreenUtil.getInstance().setHeight(110),
                       ),
-                      Text("LOGO",
+                      Text("Communify",
                           style: TextStyle(
                               fontFamily: "Poppins-Bold",
                               fontSize: ScreenUtil.getInstance().setSp(46),
@@ -135,7 +135,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: InkWell(
                               onTap: () {},
                               child: Center(
-                                child: Text("SIGNIN",
+                                child: Text("SIGNUP",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontFamily: "Poppins-Bold",
@@ -213,8 +213,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         style: TextStyle(fontFamily: "Poppins-Medium"),
                       ),
                       InkWell(
-                        onTap: () {},
-                        child: Text("SignUp",
+                        onTap: () {
+                          //to login screen
+                        },
+                        child: Text("Login",
                             style: TextStyle(
                                 color: Color(0xFF5d74e3),
                                 fontFamily: "Poppins-Bold")),
