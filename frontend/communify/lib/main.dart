@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:communify/app_theme.dart';
+import 'package:communify/login_or_sign_up/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'custom_drawer/navigation_home_screen.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-      home: NavigationHomeScreen(),
+     home: NavigationHomeScreen(),
+      //home: LoginScreen(),
     );
   }
 }

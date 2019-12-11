@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: ScreenUtil.getInstance().setHeight(180),
+                    height: ScreenUtil.getInstance().setHeight(195),
                   ),
                   FormCard(),
                   SizedBox(height: ScreenUtil.getInstance().setHeight(40)),
