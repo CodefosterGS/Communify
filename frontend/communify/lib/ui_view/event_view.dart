@@ -32,22 +32,25 @@ class EventView extends StatelessWidget {
             child: Container(
               child: Padding(
                 padding: const EdgeInsets.only(left: 24, right: 24),
-                child: Row(
-                  children: <Widget>[
-                           ListTile(
-                                leading: FlutterLogo(size: 72.0),
-                                title: Text(eventTxt),
-                                subtitle: Text(
-                                  organizationTxt + '\n' + time
-                                ),
-                                trailing: Icon(Icons.more_vert),
-                                isThreeLine: true,
-                            ),
-                          ],
+                child: Card(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[    
+                        ListTile(
+                          leading: FlutterLogo(size: 72.0),
+                          title: Text(eventTxt),
+                          subtitle: Text(
+                            organizationTxt + '\n' + time
+                          ),
+                          trailing: Icon(Icons.more_vert),
+                          isThreeLine: true,
                         ),
-                      ),
-                    )
-                ),
+                      ],
+                    ),
+                  ),
+              )
+            )
+          ),
         );
       },
     );
