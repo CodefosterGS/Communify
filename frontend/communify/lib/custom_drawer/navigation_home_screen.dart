@@ -1,4 +1,5 @@
 import 'package:communify/app_theme.dart';
+import 'package:communify/custom_drawer/about_screen.dart';
 import 'package:communify/custom_drawer/drawer_user_controller.dart';
 import 'package:communify/custom_drawer/home_drawer.dart';
 import 'package:communify/custom_drawer/feedback_screen.dart';
@@ -92,13 +93,24 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen>
         setState(() {
           screenView = InviteFriend();
         });
+      } else if (drawerIndex == DrawerIndex.Rate) {
+        setState(() {
+          screenView = RateTheApp();
+        });
+      } else if (drawerIndex == DrawerIndex.About) {
+        setState(() {
+          screenView = AboutScreen();
+        });
       } else if (drawerIndex == DrawerIndex.Setting) {
         setState(() {
-          screenView = SettingScreen();
+          screenView = SettingScreen(animationController: animationController);
         });
       } else {
         //do in your way......
       }
     }
   }
+}
+          
+Widget RateTheApp() {
 }

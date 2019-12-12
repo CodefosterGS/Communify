@@ -49,6 +49,11 @@ class _HomeDrawerState extends State<HomeDrawer>     with TickerProviderStateMix
         imageName: 'assets/images/supportIcon.png',
       ),
       DrawerList(
+        index: DrawerIndex.Setting,
+        labelName: 'Setting',
+        icon: Icon(Icons.settings),
+      ),
+      DrawerList(
         index: DrawerIndex.FeedBack,
         labelName: 'FeedBack',
         icon: Icon(Icons.help),
@@ -59,19 +64,14 @@ class _HomeDrawerState extends State<HomeDrawer>     with TickerProviderStateMix
         icon: Icon(Icons.group),
       ),
       DrawerList(
-        index: DrawerIndex.Share,
-        labelName: 'Rate the app',
-        icon: Icon(Icons.share),
-      ),
-      DrawerList(
         index: DrawerIndex.About,
         labelName: 'About Us',
         icon: Icon(Icons.info),
       ),
       DrawerList(
-        index: DrawerIndex.About,
-        labelName: 'Setting',
-        icon: Icon(Icons.settings),
+        index: DrawerIndex.Share,
+        labelName: 'Rate the app',
+        icon: Icon(Icons.share),
       ),
     ];
   }
@@ -315,6 +315,7 @@ enum DrawerIndex {
   Share,
   About,
   Invite,
+  Rate,
   Setting,
   Testing,
 }

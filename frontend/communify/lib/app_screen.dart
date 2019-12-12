@@ -1,5 +1,7 @@
 import 'package:communify/account_screen/account_screen.dart';
+import 'package:communify/explore_events/explore_events_screen.dart';
 import 'package:communify/home_screen/home_screen.dart';
+import 'package:communify/interaction_screen/interaction_screen.dart';
 import 'package:communify/models/tabIcon_data.dart';
 import 'package:communify/notification_drawer/notification_screen.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +92,7 @@ class _AppScreenState extends State<AppScreen>
                 }
                 setState(() {
                 // some screen
-                //  tabBody = (animationController: animationController),
+                 tabBody = ExploreScreen(animationController: animationController);
                 
                 });
               });
@@ -101,7 +103,7 @@ class _AppScreenState extends State<AppScreen>
                 }
                 setState(() {
                 // some screen
-                //  tabBody = (animationController: animationController),
+                tabBody = InteractionScreen(animationController: animationController);
                 });
               });
             }else if ( index == 2) {

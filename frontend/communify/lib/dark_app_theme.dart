@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class AppTheme {
-  AppTheme._();
+class DarkAppTheme {
+  DarkAppTheme._();
   static const Color notWhite = Color(0xFFEDF0F2);
   static const Color nearlyWhite = Color(0xFFFAFAFA);
   static const Color white = Color(0xFFFFFFFF);
-  static const Color background = Color(0xFFF2F3F8);
+  static const Color darkBackground = Color(0xFF313A44);
   static const Color nearlyDarkBlue = Color(0xFF2633C5);
 
   static const Color nearlyBlue = Color(0xFF00B6F0);
