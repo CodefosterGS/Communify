@@ -1,3 +1,5 @@
+import 'package:communify/custom_drawer/navigation_home_screen.dart';
+import 'package:communify/login_or_sign_up/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Widgets/FormCard.dart';
@@ -133,7 +135,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           child: Material(
                             color: Colors.transparent,
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => NavigationHomeScreen()),
+                                );
+                              },
                               child: Center(
                                 child: Text("SIGNUP",
                                     style: TextStyle(
@@ -215,6 +222,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       InkWell(
                         onTap: () {
                           //to login screen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LoginScreen()),
+                          );
                         },
                         child: Text("Login",
                             style: TextStyle(

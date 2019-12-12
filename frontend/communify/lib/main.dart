@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:communify/app_theme.dart';
 import 'package:communify/login_or_sign_up/login_screen.dart';
@@ -33,7 +34,10 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-     home: NavigationHomeScreen(),
+     home: new SplashScreen(),
+     routes: <String, WidgetBuilder>{
+      '/LoginScreen': (BuildContext context) => new LoginScreen()
+    },
       //home: LoginScreen(),
     );
   }
@@ -48,5 +52,36 @@ class HexColor extends Color {
       hexColor = 'FF' + hexColor;
     }
     return int.parse(hexColor, radix: 16);
+  }
+}
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => new _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  startTime() async {
+    var _duration = new Duration(seconds: 2);
+    return new Timer(_duration, navigationPage);
+  }
+
+  void navigationPage() {
+    Navigator.of(context).pushReplacementNamed('/LoginScreen');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    startTime();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Center(
+        child: new Image.asset('assets/images/logo.png'), 
+      ),
+      backgroundColor: AppTheme.nearlyWhite,
+    );
   }
 }
