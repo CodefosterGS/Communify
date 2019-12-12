@@ -3,6 +3,7 @@ import 'package:communify/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class EventView extends StatelessWidget {
+  final String organizationImage;
   final String organizationTxt;
   final String eventTxt;
   final String time;
@@ -11,6 +12,7 @@ class EventView extends StatelessWidget {
 
   const EventView(
       {Key key,
+      this.organizationImage,
       this.organizationTxt,
       this.eventTxt,
       this.time,
@@ -37,12 +39,12 @@ class EventView extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[    
                         ListTile(
-                          leading: FlutterLogo(size: 72.0),
+                          leading: new Image.asset(organizationImage),
                           title: Text(eventTxt),
                           subtitle: Text(
                             organizationTxt + '\n' + time
                           ),
-                          trailing: Icon(Icons.more_vert),
+                          trailing: Icon(Icons.arrow_forward_ios),
                           isThreeLine: true,
                         ),
                       ],

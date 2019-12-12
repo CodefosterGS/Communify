@@ -1,16 +1,18 @@
+import 'package:communify/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class TabIconData {
+  Icon icon;
+  Icon selectedIcon;
+
   TabIconData({
-    this.imagePath = '',
+    this.icon,
     this.index = 0,
-    this.selectedImagePath = '',
+    this.selectedIcon,
     this.isSelected = false,
     this.animationController,
   });
 
-  String imagePath;
-  String selectedImagePath;
   bool isSelected;
   int index;
 
@@ -18,29 +20,37 @@ class TabIconData {
 
   static List<TabIconData> tabIconsList = <TabIconData>[
     TabIconData(
-      imagePath: 'assets/images/tab_1.png',
-      selectedImagePath: 'assets/images/tab_1s.png',
+      icon: Icon(Icons.event),
+      selectedIcon: Icon(
+                      Icons.event,
+                      color: AppTheme.nearlyBlue,),
       index: 0,
       isSelected: true,
       animationController: null,
     ),
     TabIconData(
-      imagePath: 'assets/images/tab_2.png',
-      selectedImagePath: 'assets/images/tab_2s.png',
+      icon: Icon(Icons.bubble_chart),
+      selectedIcon: Icon(
+                      Icons.bubble_chart,
+                      color: AppTheme.nearlyBlue,),
       index: 1,
       isSelected: false,
       animationController: null,
     ),
     TabIconData(
-      imagePath: 'assets/images/tab_3.png',
-      selectedImagePath: 'assets/images/tab_3s.png',
+      icon: Icon(Icons.notifications),
+      selectedIcon: Icon(
+                      Icons.notifications,
+                      color: AppTheme.nearlyBlue,),
       index: 2,
       isSelected: false,
       animationController: null,
     ),
     TabIconData(
-      imagePath: 'assets/images/tab_4.png',
-      selectedImagePath: 'assets/images/tab_4s.png',
+      icon: Icon(Icons.account_circle),
+      selectedIcon: Icon(
+                      Icons.account_circle,
+                      color: AppTheme.nearlyBlue,),
       index: 3,
       isSelected: false,
       animationController: null,

@@ -1,6 +1,7 @@
 import 'package:communify/account_screen/account_screen.dart';
 import 'package:communify/home_screen/home_screen.dart';
 import 'package:communify/models/tabIcon_data.dart';
+import 'package:communify/notification_drawer/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'app_theme.dart';
@@ -110,7 +111,7 @@ class _AppScreenState extends State<AppScreen>
                 }
                 setState(() {
                 // some screen
-                //  tabBody = (animationController: animationController),
+                tabBody = NotificationScreen(animationController: animationController);
                 });
               });
             } else if ( index == 3) {

@@ -262,14 +262,14 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
               children: <Widget>[
                 ScaleTransition(
                   alignment: Alignment.center,
-                  scale: Tween<double>(begin: 0.88, end: 1.0).animate(
+                  scale: Tween<double>(begin: 1.0, end: 1.5).animate(
                       CurvedAnimation(
                           parent: widget.tabIconData.animationController,
                           curve:
                               Interval(0.1, 1.0, curve: Curves.fastOutSlowIn))),
-                  child: Image.asset(widget.tabIconData.isSelected
-                      ? widget.tabIconData.selectedImagePath
-                      : widget.tabIconData.imagePath),
+                  child: (widget.tabIconData.isSelected
+                      ? widget.tabIconData.selectedIcon
+                      : widget.tabIconData.icon),
                 ),
                 Positioned(
                   top: 4,

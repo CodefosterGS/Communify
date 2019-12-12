@@ -130,6 +130,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
     listViews.add(
       EventView(
+        organizationImage: 'assets/images/gdg.png',
         organizationTxt: 'Google Developer Circle',
         eventTxt: 'Cloud Day',
         time: '7 th December 2020, 10am',
